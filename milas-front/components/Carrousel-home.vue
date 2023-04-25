@@ -7,21 +7,21 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://via.placeholder.com/800x400?text=Slide+1"
+          src="../static/assets/1.png"
           class="d-block w-100"
           alt="Slide 1"
         />
       </div>
       <div class="carousel-item">
         <img
-          src="https://via.placeholder.com/800x400?text=Slide+2"
+          src="../static/assets/2.png"
           class="d-block w-100"
           alt="Slide 2"
         />
       </div>
       <div class="carousel-item">
         <img
-          src="https://via.placeholder.com/800x400?text=Slide+3"
+          src="../static/assets/3.png"
           class="d-block w-100"
           alt="Slide 3"
         />
