@@ -42,6 +42,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -51,5 +52,13 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    // transpile: ["@vuepic/vue-datepicker"],
+  },
+
+  server: {
+    port: 3000,
+    host: '192.168.1.89'
+  }
+
 }

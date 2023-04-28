@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import datePicker from 'vue-bootstrap-datetimepicker';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
-Vue.use(datePicker);
+import VueFlatpickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css'; // import the styles
+import Vue from 'vue'
+Vue.component('VueFlatpickr', VueFlatpickr)
