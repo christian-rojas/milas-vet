@@ -2,5 +2,6 @@
 // import 'bootstrap/dist/js/bootstrap.min.js'
 // import 'bootstrap'
 import Vue from 'vue'
-import { BootstrapVue } from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)

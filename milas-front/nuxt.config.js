@@ -21,12 +21,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '~/static/assets/styles.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/bootstrap.js', mode: 'client' },
-    { src: '~/plugins/datepicker.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

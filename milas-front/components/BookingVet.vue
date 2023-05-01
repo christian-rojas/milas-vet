@@ -1,45 +1,58 @@
 <template>
   <div>
-    <!-- <date-picker v-model="date" :config="options"></date-picker> -->
-    <!-- <input
-      class="form-control"
-      type="date"
-      step="1"
-      min="2023-04-26T17:00:00"
-    />
-    <input
-      id="time-picker"
-      ref="picture"
-      type="time"
-      name="time-picker"
-      min="09:00"
-      max="19:00"
-      value="12:00"
-      @focus="esto"
-    /> -->
-    <!-- <vue-flatpickr v-model="selectedDate" :config="config"></vue-flatpickr> -->
-    <b-form-datepicker id="example-datepicker" class="mb-2"></b-form-datepicker>
-    <!-- <input
-      id="time-picker"
-      ref="picture"
-      type="time"
-      name="time-picker"
-      min="09:00:00"
-      max="19"
-      value="12:00"
-    /> -->
-    <!-- <b-time locale="en" @context="onContext"></b-time> -->
+    <div class="row">
+      <div class="col-md-6 d-flex justify-content-center mb-3" offset="50">
+        <div id="datepicker">
+          <b-form-datepicker
+            id="example-datepicker"
+            :start-weekday="1"
+            :date-disabled-fn="dateDisabled"
+            locale="es"
+            :min="min"
+            placeholder="Escoge una fecha"
+            dropdown
+            weekday-header-format="narrow"
+            menu-class="w-100"
+            calendar-width="100%"
+            size="md"
+          ></b-form-datepicker>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center" offset="50">
+      <div id="clock">
+        <b-dropdown id="dropdown-1">
+          <template #button-content>
+            <div style="display: inline-flex">
+              <b-icon-clock class="d-flex"></b-icon-clock>
+              <p style="margin-left: 15px; margin-bottom: 0px !important">
+                {{ text ?? '12:00' }}
+              </p>
+            </div>
+          </template>
+          <div v-for="(todo, index) in todos" :key="index">
+            <b-dropdown-item @click="setText(todo)">
+              {{ todo }}
+            </b-dropdown-item>
+          </div>
+        </b-dropdown>
+      </div>
+    </div>
+    </div>
+    
   </div>
 </template>
 <script lang="js">
 import { defineComponent } from "vue";
-// import VueDatePicker from '@vuepic/vue-datepicker';
+import { BIconClock } from 'bootstrap-vue'
 export default defineComponent({
 components: {
-  // VueDatePicker
+  BIconClock
 },
   data() {
     return {
+      min: new Date(),
+      todos: ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+      text: null,
       selectedDate: null,
       date: new Date(),
       config: {
@@ -65,6 +78,17 @@ components: {
 
   },
   methods: {
+    dateDisabled(ymd, date) {
+      // Disable weekends (Sunday = `0`, Saturday = `6`) and
+      // disable days that fall on the 13th of the month
+      const weekday = date.getDay()
+      const day = date.getDate()
+      // Return `true` if the date should be disabled
+      return weekday === 0 || weekday === 6 || day === 13
+    },
+    setText(text) {
+      this.text = text
+    },
     esto() {
       const horasDeshabilitadas = [8, 7, 6];
       const horaSelector = this.$refs.picture;
@@ -78,4 +102,8 @@ components: {
   },
 })
 </script>
-<style lang="css"></style>
+<style lang="css">
+#datepicker {
+  width: 200px;
+}
+</style>
