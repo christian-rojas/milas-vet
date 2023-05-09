@@ -28,6 +28,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/bootstrap.js', mode: 'client' },
+    { src: '~/plugins/vuelidate.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,7 +44,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    // 'vuelidate'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -57,9 +59,9 @@ export default {
     // transpile: ["@vuepic/vue-datepicker"],
   },
 
-  server: {
-    port: 3000,
-    host: '192.168.1.89'
-  }
+  // server: {
+  //   port: 3000,
+  //   host: '192.168.1.89'
+  // }
 
 }

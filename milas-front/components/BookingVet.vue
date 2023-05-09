@@ -34,6 +34,22 @@
             </div>
           </b-dropdown>
         </div>
+        <b-form-group
+          id="input-group-1"
+          label="Email address:"
+          label-for="input-1"
+          description="We'll never share your email with anyone else."
+        >
+        <b-form-input
+          id="input-1"
+          v-model="form.email"
+          type="email"
+          placeholder="Enter email"
+          required
+          :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+          @input="$v.form.email.$touch"
+        ></b-form-input>
+      </b-form-group>
       </b-card>
     </div>
   </div>
@@ -41,12 +57,18 @@
 <script lang="js">
 import { defineComponent } from "vue";
 import { BIconClock } from 'bootstrap-vue'
+import { required, email } from 'vuelidate/lib/validators'
+
 export default defineComponent({
 components: {
   BIconClock
 },
   data() {
     return {
+      email: '',
+      form: {
+        email: ''
+      },
       min: new Date(),
       todos: ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
       text: null,
@@ -64,15 +86,13 @@ components: {
       },
     }
   },
-  mounted() {
-    // const height = this.$refs.picture
-    // height.addEventListener('change', function () {
-    //   const selectedTime = height.value
-    //   const roundedTime = selectedTime.slice(0, -3) + ':00'
-    //   height.value = roundedTime
-    // })
 
-
+  validations () {
+    return {
+      form: {
+        email: { required, email }
+      }
+    }
   },
   methods: {
     dateDisabled(ymd, date) {
