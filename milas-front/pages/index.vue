@@ -1,21 +1,19 @@
 <template>
   <div>
     <NavBar />
-    <div class="container">
-      <carrousel-home />
+      <carousel-home />
       <hr>
       <booking-vet></booking-vet>
-    </div>
   </div>
 </template>
 
 <script>
-import CarrouselHome from '../components/Carrousel-home.vue';
+import CarouselHome from '../components/CarouselHome.vue';
 import BookingVet from '../components/BookingVet.vue';
 import NavBar from '~/components/NavBar.vue';
 
 export default {
     name: "IndexPage",
-    components: { NavBar, CarrouselHome, BookingVet }
+    components: { NavBar, CarouselHome, BookingVet }
 }
 </script>

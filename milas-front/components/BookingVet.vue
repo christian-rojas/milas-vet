@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-md-6 d-flex justify-content-center mb-3" offset="50">
-        <div id="datepicker">
+    <div class="container">
+      <b-card bg-variant="light" header="Reserva" class="text-center">
+        <div id="datepicker" class="mb-3">
           <b-form-datepicker
             id="example-datepicker"
             :start-weekday="1"
@@ -14,31 +14,28 @@
             weekday-header-format="narrow"
             menu-class="w-100"
             calendar-width="100%"
-            size="md"
+            size="lg"
           ></b-form-datepicker>
         </div>
-      </div>
-      <div class="col-md-6 d-flex justify-content-center" offset="50">
-      <div id="clock">
-        <b-dropdown id="dropdown-1">
-          <template #button-content>
-            <div style="display: inline-flex">
-              <b-icon-clock class="d-flex"></b-icon-clock>
-              <p style="margin-left: 15px; margin-bottom: 0px !important">
-                {{ text ?? '12:00' }}
-              </p>
+        <div id="clock">
+          <b-dropdown id="dropdown-1" class="bg-info">
+            <template #button-content>
+              <div style="display: inline-flex">
+                <b-icon-clock class="d-flex"></b-icon-clock>
+                <p style="margin-left: 15px; margin-bottom: 0px !important">
+                  {{ text ?? '12:00' }}
+                </p>
+              </div>
+            </template>
+            <div v-for="(todo, index) in todos" :key="index">
+              <b-dropdown-item @click="setText(todo)">
+                {{ todo }}
+              </b-dropdown-item>
             </div>
-          </template>
-          <div v-for="(todo, index) in todos" :key="index">
-            <b-dropdown-item @click="setText(todo)">
-              {{ todo }}
-            </b-dropdown-item>
-          </div>
-        </b-dropdown>
-      </div>
+          </b-dropdown>
+        </div>
+      </b-card>
     </div>
-    </div>
-    
   </div>
 </template>
 <script lang="js">
@@ -103,7 +100,11 @@ components: {
 })
 </script>
 <style lang="css">
-#datepicker {
-  width: 200px;
+#clock {
+  display: flex;
+  justify-content: center;
+}
+#dropdown-1__BV_toggle_ {
+  background-color: #17a2b8 !important;
 }
 </style>
