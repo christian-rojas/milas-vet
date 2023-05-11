@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="booking">
     <div class="container">
       <b-card bg-variant="light" header="Reserva" class="text-center">
         <div id="datepicker" class="mb-3">
