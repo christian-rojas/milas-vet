@@ -5,9 +5,9 @@
         <img src="./../static/assets/logo.png" width="50px" alt="">
       </b-navbar-brand>
 
-      <b-navnar-item class="m-auto">
+      <!-- <b-navbar-item class="m-auto">
         <b-button variant="warning">reserva</b-button>
-      </b-navnar-item>
+      </b-navbar-item> -->
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -23,6 +23,5 @@
   </div>
 </template>
 <script lang="ts">
-export default {}
 </script>
 <style lang=""></style>

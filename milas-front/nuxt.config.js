@@ -28,7 +28,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/bootstrap.js', mode: 'client' },
-    { src: '~/plugins/vuelidate.js' }
+    { src: '~/plugins/vuelidate.js' },
+    { src: '~/plugins/calendly.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -47,6 +48,7 @@ export default {
     'bootstrap-vue/nuxt',
     // 'vuelidate'
   ],
+
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
